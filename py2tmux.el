@@ -43,7 +43,7 @@
 (defun py2tmux/send-to-tmux (start end session-name)
   "send the text in current-buffer between start and end
    to the tmux session with name session-name"
-  (let ((command (format "%s send-content --session %s" py2tmux-binary session-name)))
+  (let ((command (format "%s send-content --session %s" py2tmux/binary session-name)))
     (shell-command-on-region start end command))
   )
 
