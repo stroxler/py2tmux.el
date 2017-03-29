@@ -37,12 +37,13 @@
 ;;; Code:
 
 (setq py2tmux/active-session "emacs")
+(setq py2tmux/binary "py2tmux")
 
 ;;;###autoload
 (defun py2tmux/send-to-tmux (start end session-name)
   "send the text in current-buffer between start and end
    to the tmux session with name session-name"
-  (let ((command (format "py2tmux send-content --session %s" session-name)))
+  (let ((command (format "%s send-content --session %s" py2tmux-binary session-name)))
     (shell-command-on-region start end command))
   )
 
