@@ -36,6 +36,7 @@
 
 ;;; Code:
 
+(setq py2tmux/active-session "emacs")
 
 ;;;###autoload
 (defun py2tmux/send-to-tmux (start end session-name)
@@ -63,14 +64,14 @@
   (interactive)
   (let ((start (py2tmux/get-beginning-of-line))
         (end   (py2tmux/get-end-of-line)))
-    (py2tmux/send-to-tmux start end "emacs")
+    (py2tmux/send-to-tmux start end py2tmux/active-session)
     ))
 
 ;;;###autoload
 (defun py2tmux/region-to-tmux (start end)
   "send the current region to the tmux session named 'emacs'"
   (interactive "r")
-  (py2tmux/send-to-tmux start end "emacs")
+  (py2tmux/send-to-tmux start end py2tmux/active-session)
   )
 
 
